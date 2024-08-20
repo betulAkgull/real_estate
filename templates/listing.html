@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listing Detail</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+            color: #333;
+        }
+
+        .image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .details div {
+            flex: 1 1 calc(50% - 20px);
+            /* Her biri yarım sütun kaplar */
+        }
+
+        .details h2 {
+            margin-top: 0;
+            color: #555;
+        }
+
+        .description {
+            margin-top: 20px;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .price {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        .back-link {
+            display: block;
+            text-align: right;
+            margin-top: 20px;
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>{{listing.title}}</h1>
+        </div>
+
+        <!-- <img src="ornek-gorsel.jpg" alt="İlan Görseli" class="image"> -->
+
+        <div class="details">
+            <div>
+                <h2>Address</h2>
+                <p>{{listing.address}}</p>
+            </div>
+            <div>
+                <h2>Number of Bedrooms</h2>
+                <p>{{listing.num_bedrooms}}</p>
+            </div>
+            <div>
+                <h2>Number of Bathrooms</h2>
+                <p>{{listing.num_bathrooms}}</p>
+            </div>
+            <div>
+                <h2>Square Foot</h2>
+                <p>{{listing.sqr_foot}} m<sup>2</sup></p>
+            </div>
+        </div>
+
+        <div class="description">
+            <h2>Description</h2>
+            <p>
+                Bu örnek ilan, geniş bir yaşam alanı ve modern olanaklarla donatılmıştır. Şehir merkezine yakın konumda
+                olup,
+                aileler için ideal bir yaşam alanı sunmaktadır. Detaylı bilgi ve yerinde görme imkanı için lütfen
+                bizimle iletişime geçin.
+            </p>
+        </div>
+
+        <div class="price">
+            ${{listing.price}}
+        </div>
+
+        <a href="javascript:history.back()" class="back-link">← Go Back to Listings</a>
+    </div>
+
+</body>
+
+</html>

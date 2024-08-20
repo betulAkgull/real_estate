@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .add-listing {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .add-listing button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .add-listing button:hover {
+            background-color: #2980b9;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            /* 2 sütunluk bir grid oluşturur */
+            gap: 20px;
+            /* İlanlar arasında boşluk bırakır */
+            padding: 20px;
+        }
+
+        .listing {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .listing:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .listing h2 {
+            margin-top: 0;
+            color: #333;
+            font-size: 1.5em;
+        }
+
+        .listing p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .price {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #e74c3c;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Listings</h1>
+
+    <div class="add-listing">
+        <a href="add-listing/">
+            <button>+ Add New Listing</button>
+        </a>
+    </div>
+
+
+    <div class="container">
+        {% for listing in listings %}
+        <div class="listing">
+            <a href="/listings/{{ listing.id }}/">
+                <h2>{{listing.title}}</h2>
+            </a>
+            <p><strong>Address:</strong> {{listing.address}}</p>
+            <p><strong>Bedrooms:</strong> {{listing.num_bedrooms}}</p>
+            <p><strong>Bathrooms:</strong> {{listing.num_bathrooms}}</p>
+            <p><strong>Square Foot:</strong> {{listing.sqr_foot}} m<sup>2</sup></p>
+            <p class="price"><strong>Price:</strong> ${{listing.price}} </p>
+        </div>
+        {% endfor %}
+
+    </div>
+
+</body>
+
+</html>
