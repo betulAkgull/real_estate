@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Listing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group input[type="url"],
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .button-group button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .button-group .cancel-btn {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .button-group .save-btn {
+            background-color: #3498db;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Update Listing</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="title">Title</label>
+                {{ form.title }}
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                {{ form.address }}
+            </div>
+            <div class="form-group">
+                <label for="bedrooms">Number of Bedrooms</label>
+                {{ form.num_bedrooms }}
+            </div>
+            <div class="form-group">
+                <label for="bathrooms">Number of Bathrooms</label>
+                {{ form.num_bathrooms }}
+            </div>
+            <div class="form-group">
+                <label for="size">Square Foot</label>
+                {{ form.sqr_foot }}
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                {{ form.price }}
+            </div>
+            <!-- Daha fazla form alanı ekleyebilirsiniz -->
+            <div class="button-group">
+                <button type="button" class="cancel-btn" onclick="javascript:history.back()">Cancel</button>
+                <button type="submit" class="save-btn">Save Changes</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
